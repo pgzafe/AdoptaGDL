@@ -1,0 +1,589 @@
+doctype html
+// https://api.npoint.io/9ed3bd9be35f6e9ce4e1
+head
+  title AdoptaGDL
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='canonical' href='https://getbootstrap.com/docs/5.0/examples/carousel/')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  link(href='../assets/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='css/carousel.css' rel='stylesheet')
+  style.
+    body {
+    margin: 0%;
+    padding: 0%;
+    }
+    body {
+    font-family: "Open Sans", sans-serif;
+    }
+    button {
+      padding: 10px;
+    }
+    h2 {
+    color: rgb(30, 30, 30);
+    font-size: 26px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    margin: 30px 0 80px;
+    }
+    h2 b {
+    color: rgb(57, 184, 158);
+    }
+    h2::after {
+    content: "";
+    width: 100px;
+    position: absolute;
+    margin: 0 auto;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    }
+    .carousel {
+    margin: 50px auto;
+    padding: 0 70px;
+    }
+    .carousel .item {
+    min-height: 330px;
+    text-align: center;
+    overflow: hidden;
+    }
+    .carousel .item .img-box {
+    height: 160px;
+    width: 100%;
+    position: relative;
+    }
+    .carousel .item img {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    }
+    .carousel .item h4 {
+    font-size: 18px;
+    margin: 10px 0;
+    }
+    .carousel .item .btn {
+    color: #333;
+    border-radius: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-top: 5px;
+    line-height: 16px;
+    }
+    .carousel .item .btn:hover, .carousel .item .btn:focus {
+    color: #fff;
+    background: #000;
+    border-color: #000;
+    box-shadow: none;
+    }
+    .carousel .item .btn i {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 5px;
+    }
+    .carousel .thumb-wrapper {
+    text-align: center;
+    }
+    .carousel .thumb-content {
+    padding: 15px;
+    }
+    .carousel .item-price {
+    font-size: 13px;
+    padding: 2px 0;
+    }
+    .carousel .item-price strike {
+    color: #999;
+    margin-right: 5px;
+    }
+    .carousel .carousel-indicators {
+    bottom: -50px;
+    }
+    .carousel-indicators li, .carousel-indicators li.active {
+    width: 10px;
+    height: 10px;
+    margin: 4px;
+    border-radius: 50%;
+    border-color: transparent;
+    }
+    .carousel-indicators li {
+    background: rgba(0, 0, 0, 0.2);
+    }
+    .carousel-indicators li.active {
+    background: rgba(0, 0, 0, 0.6);
+    }
+    .star-rating li {
+    padding: 0;
+    }
+    .star-rating i {
+    font-size: 14px;
+    color: #ffc000;
+    }
+    div.sticky{
+    position: sticky;
+    top: 10%;
+    float: left;
+    }
+    .footer{
+    padding-top: 5px;
+    }
+    #space-between {
+    justify-content: space-between;
+    }
+style.
+  .col{
+  border: 1px rgba(211, 211, 211, 0.651);
+  border-style: solid;
+  border-radius: 5px;
+  width: max-content;
+  height: max-content;
+  padding: 30px;
+  margin: 30px;
+  color: black;
+  }
+nav.navbar.navbar-expand-sm.navbar-light.bg-light
+  #collapsibleNavId.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mt-22.mt-lg-0
+      li.nav-item.active
+        a.navbar-brand(href='/' style='color:rgb(57, 184, 158);')
+          img(src='AdoptaGDL_Logo2.png' height='100%' width='100%')
+          span.sr-only (current)
+      form.container-fluid.justify-content-flex-end
+        button.btn.btn-outline-success.me-2(type='button' data-target='#modelRegistro' data-toggle='modal') Registrate
+        button.btn.btn-outline-success.me-2(type='button' data-toggle='modal' data-target='#modelLogin') Ingresar
+        button.btn.btn-outline-success.me-2(type='button' onclick="window.location.href='/mismascotas'" hidden) Mis Mascotas
+        button.btn.btn-outline-success.me-2(type='button' data-toggle='modal' data-target='#modelRegistroMascota') Registrar una Mascota
+        a(href='/mascotasperdidas')
+          button.btn.btn-outline-success.me-2(type='button' data-toggle='modal') Mascotas Perdidas
+.jumbotron(style="background-image: url('cielo-chido.png'); background-size: cover; font-family: sans-serif;")
+  .container
+    h1(style='color: rgb(30, 30, 30);')
+      b &iquest;Qu&eacute; tipo de mascota buscas?
+    hr.my-2(style='height: 5px;')
+    form(name='searchform' onsubmit='return dosearch();' style='color: rgb(30, 30, 30);')
+      b(style='font-size: 25px;') Estado:
+      select(name='Estado')
+        option(value='' selected='') Cualquier Estado
+        option(value='Aguascalientes') Aguascalientes
+        option(value='Baja California') Baja California
+        option(value='Baja California Sur') Baja California Sur
+        option(value='Campeche') Campeche
+        option(value='Chiapas') Chiapas
+        option(value='Chihuahua') Chihuahua
+        option(value='CDMX') Ciudad de M&eacute;xico
+        option(value='Coahuila') Coahuila
+        option(value='Colima') Colima
+        option(value='Durango') Durango
+        option(value='Estado de México') Estado de M&eacute;xico
+        option(value='Guanajuato') Guanajuato
+        option(value='Guerrero') Guerrero
+        option(value='Hidalgo') Hidalgo
+        option(value='Jalisco') Jalisco
+        option(value='Michoacán') Michoac&aacute;n
+        option(value='Morelos') Morelos
+        option(value='Nayarit') Nayarit
+        option(value='Nuevo León') Nuevo Le&oacute;n
+        option(value='Oaxaca') Oaxaca
+        option(value='Puebla') Puebla
+        option(value='Querétaro') Quer&eacute;taro
+        option(value='Quintana Roo') Quintana Roo
+        option(value='San Luis Potosí') San Luis Potos&iacute;
+        option(value='Sinaloa') Sinaloa
+        option(value='Sonora') Sonora
+        option(value='Tabasco') Tabasco
+        option(value='Tamaulipas') Tamaulipas
+        option(value='Tlaxcala') Tlaxcala
+        option(value='Veracruz') Veracruz
+        option(value='Yucatán') Yucat&aacute;n
+        option(value='Zacatecas') Zacatecas
+      b(style='font-size: 25px; padding-left: 10px;') Tama&ntilde;o:
+      select(name='tamano')
+        option(value='' selected='') Cualquier tama&ntilde;o
+        option(value='xs') Miniatura
+        option(value='s') Chico
+        option(value='m') Mediano
+        option(value='g') Grande
+      b(style='font-size: 25px; padding-left: 10px;') Sexo:
+      select(name='sexo')
+        option(value='' selected='') Cualquier sexo
+        option(value='macho') Macho
+        option(value='hembra') Hembra
+      input.btn.btn-primary.btn-lg(style='color:rgb(255, 255, 255); background-color: rgb(30, 30, 30); border-color: rgba(255, 255, 255, 0); padding-left: 20px;' type='submit' name='SearchSubmit' value='Search')
+.container
+  .row
+    .col-md-12
+      h2
+        | ANIMALES EN
+        b  ADOPCI&Oacute;N 
+      #myCarousel.carousel.slide(data-ride='carousel' data-interval='0')
+        // Wrapper for carousel items
+        .carousel-inner
+          .item.active
+            // ------------------------------------------------------------------------------------------------------------------FILA 1
+            .row
+              // PERRO 1
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://i.pinimg.com/236x/f1/74/06/f174066010d97146ca061229d1475d8f.jpg' alt='')
+                  .thumb-content
+                    h4 Grobegtuh
+                    p.item-price Macho
+                    p.item-price Mediano
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Guadalajara
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+              // PERRO 2
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://i.pinimg.com/236x/98/47/4a/98474a87f5bc3b9babe4c1253fab9afd.jpg' alt='')
+                  .thumb-content
+                    h4 Matrushka
+                    p.item-price Hembra
+                    p.item-price Chico
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Monterrey
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+              // PERRO 3
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://i.pinimg.com/originals/4b/a2/12/4ba2123312cb69d61f99fad616c57526.jpg' alt='')
+                  .thumb-content
+                    h4 Quentoky
+                    p.item-price Macho
+                    p.item-price Grande
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Guadalajara
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+              // PERRO 4
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://cdn.eldeforma.com/wp-content/uploads/2020/10/perrito-estilos-3.jpg' alt='')
+                  .thumb-content
+                    h4 Ariana La Mediana
+                    p.item-price Hembra
+                    p.item-price Mediano
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Monterrey
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+          br
+          br
+          br
+          br
+          br
+          br
+          .item
+            // ------------------------------------------------------------------------------------------------------------------FILA 2
+            .row
+              // PERRO 1
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://i.pinimg.com/236x/fd/f4/18/fdf41862cf42f0c0cf4ca627c74cbece.jpg' alt='')
+                  .thumb-content
+                    h4 Kun Fu
+                    p.item-price Macho
+                    p.item-price Mediano
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Guadalajara
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+              // PERRO 2
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://i.pinimg.com/236x/c7/5c/8b/c75c8bab464b266e365c2842670b94b6.jpg' alt='')
+                  .thumb-content
+                    h4 Rogers
+                    p.item-price Hembra
+                    p.item-price Grande
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Monterrey
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+              // PERRO 3
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://i.pinimg.com/474x/b2/92/7b/b2927bd7183d656cc812bac9e3f54b41.jpg' alt='')
+                  .thumb-content
+                    h4 MC Jordan
+                    p.item-price Macho
+                    p.item-price Chico
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Guadalajara
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+              // PERRO 4
+              .col-sm-3
+                .thumb-wrapper
+                  .img-box
+                    img.img-responsive(src='https://i.pinimg.com/originals/5a/ba/00/5aba00bdc13739422af7b6320fe1774f.jpg' alt='')
+                  .thumb-content
+                    h4 Travis
+                    p.item-price Hembra
+                    p.item-price Mediano
+                    h7 Raza:
+                    p.item-price Shiba inu
+                    p.item-price Monterrey
+                    a.btn.btn-primary(href='/masinfo') Mas Informaci&oacute;n
+        br
+// --------------------------------------PAGINACION
+nav(aria-label='Page navigation example')
+  ul.pagination.justify-content-center
+    li.page-item.disabled
+      a.page-link(href='#' tabindex='-1' aria-disabled='true') Previous
+    li.page-item
+      a.page-link(href='#') 1
+    li.page-item
+      a.page-link(href='#') 2
+    li.page-item
+      a.page-link(href='#') 3
+    li.page-item
+      a.page-link(href='#') Next
+br
+br
+br
+// CONTACTOS
+footer.footer(style='background-color: rgb(248, 249, 250);')
+  .container
+    .container
+      .row
+        .col-sm
+          img(src='AdoptaGDL_Logo2.png')
+        .col-sm
+          ul(style='list-style-type: none; color: rgb(57, 184, 158);')
+            li
+              b UBICACI&Oacute;N:
+            li Av. Mariano Otero 5700
+            li Col. Paseos del Sol
+            li Jalisco, M&eacute;xico C.P.45070
+        .col-sm
+          ul(style='list-style-type: none; color: rgb(57, 184, 158);')
+            li
+              b CONTACT CENTER:
+            li (044) 3318629076
+            li Atenci&oacute;n: 07:00-05:00
+        .col-sm
+          ul(style='list-style-type: none; color: rgb(57, 184, 158);')
+            li
+              b PAGINAS:
+            li Adopciones
+            li Usuario
+  span.text-muted(style='text-align:center;')  &copy;AdoptaGDL S.A. de C.V. es una empresa de corporativo PabloJaniceCrespo
+// -----------------------------------------------------------------------------------------------------------------------------MODAL PARA REGISTRO--------
+#modelRegistro.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modelTitleId' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title Crear Cuenta
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        .container-fluid
+          form#formRegistro.needs-validation(method="POST" action='/adopciones' novalidate='')
+            // --------------------DAT------------------
+            .input-group.mb-3
+              .row
+                .col-md-6
+                  input#Nombre.form-control(name='Nombre' type='text' placeholder='Nombre' required='')
+                .col-md-6
+                  input#Apellido.form-control(name='Apellido' type='text' placeholder='Apellidos' required='')
+            .input-group.mb-3
+              input#Correo.form-control( name='Correo' type='email' placeholder='Correo' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' required='')
+            .input-group.mb-3
+              input#Celular.form-control( name='Celular' type='text' placeholder='Celular' required='')
+            // --------------------PWD------------------
+            .input-group.mb-3
+              input#Contrasena.form-control(name='Contrasena' type='password' placeholder='Contraseña' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters' required='')
+            .input-group.mb-3
+              input#ConfContrasena.form-control(name='ConfContrasena' type='password' placeholder='Confirmar contraseña' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters' required='')
+            // --------------------SEX------------------
+            .input-group
+              .form-check
+                input#Hombre.form-check-input(type='radio' name='Sexo' value='H' required='')
+                label.form-check-label(for='Hombre')  Hombre 
+            .input-group
+              .form-check.mb-4
+                input#Mujer.form-check-input(type='radio' name='Sexo' value='M' required='')
+                label.form-check-label(for='Mujer')  Mujer 
+            .modal-footer
+              button.btn.btn-secondary(type='button' data-dismiss='modal') Cancelar
+              button#btnRegistrar.btn.btn-primary(type='submit') Registrarse
+// -----------------------------------------------------------------------------------------------------------------------------MODAL PARA LOG IN--------
+#modelLogin.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modelTitleId' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title Log In
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        form#formLogin.needs-validation(novalidate='' action="/adopciones:login" method="POST")
+          // --------------------EMAIL------------------
+          label.form-label(for='Correo') Correo
+          .input-group.mb-3
+            span.input-group-text
+              img(src='https://cdn.iconscout.com/icon/free/png-256/user-1648810-1401302.png' height='18px' width='18px')
+            input#CorreoLogin.form-control(type='text' name="CorreoLogin" placeholder='Correo' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' required='')
+          // ---------------------PWD------------------
+          label.form-label(for='PWD') Contrase&ntilde;a
+          .input-group.mb-3
+            span.input-group-text
+              img(src='https://qad.tedapanshivika.pw/img/d23e6d9ee3fc77bfc18b79afb26a7e34.png' height='18px' width='18px')
+            input#ContrasenaLogin.form-control(type='password' name="ContrasenaLogin" placeholder='Contraseña' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters' required='')
+          .modal-footer
+            button.btn.btn-secondary(type='button' data-dismiss='modal') Cancelar
+            button#btnLogin.btn.btn-primary(type='sumbit') Entrar
+        hr
+        div
+          p(align='right')
+            | &iquest;No tienes cuenta? 
+            a(href='#modelRegistro' data-toggle='modal' data-target='#modelRegistro' data-dismiss='modal') Registrate aqui!
+// -----------------------------------------------------------------------------------------------------------------------------MODAL PARA REGISTRO DE MASCOTA--------
+#modelRegistroMascota.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modelTitleId' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5.modal-title Registro de Mascota
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        .container-fluid
+          form#formRegistroMascota.needs-validation(novalidate='' action="/adopciones:agregarmascota" method="POST")
+            // --------------------DAT------------------
+            .input-group.mb-3
+              input#NombreMascota.form-control(name='Nombre' type='text' placeholder='Nombre' required='')
+            .input-group.mb-3
+              input#CorreoDueno.form-control(name='CorreoDueno' type='text' placeholder='Correo Dueño' required='')
+            //.input-group.mb-3
+              .row
+                .col-md-6
+                  input#Nombre.form-control(name='NombreDueno' type='text' placeholder='Nombre Dueño' required='')
+                .col-md-6
+                  input#Apellido.form-control(name='ApellidoDueno' type='text' placeholder='Apellidos Dueño' required='')
+            .input-group.mb-3
+              select#RazaMascota.custom-select(name="Raza")
+                option(selected='') Raza
+                option(value='Barbet') Barbet
+                option(value='Beagle') Beagle
+                option(value='Bloodhound') Bloodhound
+                option(value='Border') Border Collie
+                option(value='Boxer') Boxer
+                option(value='Chihuahua') Chihuahua
+                option(value='Cocker') Cocker
+                option(value='Foxhound') Foxhound
+                option(value='Golden Retriever') Golden Retriever
+                option(value='Husky') Husky
+                option(value='Kerry Terrier') Kerry Terrier
+                option(value='Labrador Retriever') Labrador Retriever
+                option(value='Mastin Barbet') Mastin Barbet
+                option(value='Pastor Aleman') Pastor Aleman
+                option(value='Pastor Belga') Pastor Belga
+                option(value='Pit Bull') Pit Bull
+                option(value='Pug') Pug
+                option(value='Rottweiler') Rottweiler
+                option(value='Schnauzer') Schnauzer
+                option(value='Xoloitzciuntle') Xoloitzciuntle
+                option(value='Yorkie') Yorkie
+                option(value='Otro') Otro
+            .input-group.mb-3
+              select#TamanoMascota.custom-select(name='Tamano')
+                option(value='no') Tamaño
+                option(value='xs') Miniatura
+                option(value='s') Chico
+                option(value='m') Mediano
+                option(value='g') Grande
+            .input-group.mb-3
+              select#EstadoMascota.custom-select(name='Estado')
+                option(value='no') Estado
+                option(value='Aguascalientes') Aguascalientes
+                option(value='Baja California') Baja California
+                option(value='Baja California Sur') Baja California Sur
+                option(value='Campeche') Campeche
+                option(value='Chiapas') Chiapas
+                option(value='Chihuahua') Chihuahua
+                option(value='CDMX') Ciudad de M&eacute;xico
+                option(value='Coahuila') Coahuila
+                option(value='Colima') Colima
+                option(value='Durango') Durango
+                option(value='Estado de México') Estado de M&eacute;xico
+                option(value='Guanajuato') Guanajuato
+                option(value='Guerrero') Guerrero
+                option(value='Hidalgo') Hidalgo
+                option(value='Jalisco') Jalisco
+                option(value='Michoacán') Michoac&aacute;n
+                option(value='Morelos') Morelos
+                option(value='Nayarit') Nayarit
+                option(value='Nuevo León') Nuevo Le&oacute;n
+                option(value='Oaxaca') Oaxaca
+                option(value='Puebla') Puebla
+                option(value='Querétaro') Quer&eacute;taro
+                option(value='Quintana Roo') Quintana Roo
+                option(value='San Luis Potosí') San Luis Potos&iacute;
+                option(value='Sinaloa') Sinaloa
+                option(value='Sonora') Sonora
+                option(value='Tabasco') Tabasco
+                option(value='Tamaulipas') Tamaulipas
+                option(value='Tlaxcala') Tlaxcala
+                option(value='Veracruz') Veracruz
+                option(value='Yucatán') Yucat&aacute;n
+                option(value='Zacatecas') Zacatecas
+            .input-group.mb-3
+              select#EdadMascota.custom-select(name="Edad")
+                option(value='no') Edad
+                option(value='Menor de 1 año') Menor de 1 a&ntilde;o
+                option(value='1 año') 1 a&ntilde;o
+                option(value='2 años') 2 a&ntilde;os
+                option(value='3 años') 3 a&ntilde;os
+                option(value='4 años') 4 a&ntilde;os
+                option(value='5 años') 5 a&ntilde;os
+                option(value='6 años') 6 a&ntilde;os
+                option(value='7 años') 7 a&ntilde;os
+                option(value='8 años') 8 a&ntilde;os
+                option(value='9 años') 9 a&ntilde;os
+                option(value='Mas de 10 años') 10 a&ntilde;os o mas
+            .input-group.mb-3
+              input#UrlMascota.form-control(name='URL' type='url' placeholder='URL de Imagen de mascota' required='')
+            // --------------------SEX------------------
+            label Sexo
+            .input-group
+              .form-check
+                input#Macho.form-check-input(type='radio' name='Sexo' value='H' required='')
+                label.form-check-label(for='Macho')  Macho 
+            .input-group
+              .form-check.mb-4
+                input#Hembra.form-check-input(type='radio' name='Sexo' value='M' required='')
+                label.form-check-label(for='Hembra')  Hembra 
+            // --------------------URL------------------
+            .modal-footer
+              button.btn.btn-secondary(type='button' data-dismiss='modal') Cancelar
+              button#btnRegistrarMascota.btn.btn-primary(type='submit') Registrar mi Mascota
+// Optional JavaScript
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+script(src='../assets/dist/js/bootstrap.bundle.min.js')
+script(src="js/adopciones.js") 
+

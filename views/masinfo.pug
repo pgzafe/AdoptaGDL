@@ -1,0 +1,64 @@
+doctype html
+head
+  title AdoptaGDL
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='canonical' href='https://getbootstrap.com/docs/5.0/examples/carousel/')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(href='../assets/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='masinfo.css' rel='stylesheet')
+// NAV BAR
+nav.navbar.navbar-expand-sm.navbar-light.bg-light
+  #collapsibleNavId.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mt-22.mt-lg-0
+      li.nav-item.active
+        a.navbar-brand(href='/' style='color:rgb(57, 184, 158);')
+          img(src='AdoptaGDL_Logo2.png' height='100%' width='100%')
+          span.sr-only (current)
+a.btn.btn-primary.btn-md.mt-3.ml-3(href='/adopciones' role='button')
+  i.fa.fa-angle-left
+  | Regresar
+// Mas info sobre perro
+// IMAGEN
+div(style='text-align:center')
+  img.fotoperro(src='https://www.newshub.co.nz/home/lifestyle/2019/11/dog-years-are-a-myth-2-year-old-dogs-already-middle-aged-scientists/_jcr_content/par/video/image.dynimg.1280.q75.jpg/v1574572358818/GETTY-labrador-puppy-1120.jpg')
+// MAS INFO jumbotron
+.box
+  .col-md-6.mx-auto
+    .jumbotron.bg-cover
+      .container
+        h1.display-4 Pedrito
+        hr.my-4
+        table.table
+          thead
+            tr
+              th(scope='col' style='color: rgb(45, 45, 105);') Atributo
+              th(scope='col' style='color: rgb(45, 45, 105);') Descripci&oacute;n
+          tbody
+            tr
+              th(scope='row') Ubicaci&oacute;n
+              td Guadalajara
+            tr
+              th(scope='row') Raza
+              td Mixto
+            tr
+              th(scope='row') Edad
+              td 8 meses
+            tr
+              th(scope='row') Nombre del due&ntilde;o
+              td Sara Buligar
+            tr
+              th(scope='row') Cel. del due&ntilde;o
+              td (33) 19382950
+            tr
+              th(scope='row') Correo del due&ntilde;o
+              td sarabuligar@gmail.com
+        p.lead
+          | Al dar click a adoptar el due&ntilde;o del perro recibir&aacute; una notificaci&oacute;n para que se comuniquen de manera m&aacute;s eficiente.
+          | Ya no se ver&aacute; el perro en el cat&aacute;logo.
+        hr.my-4
+        h3(style='margin-bottom: 20px') Tu perro te espera!
+        a.btn.btn-primary.btn-lg(href='#' role='button') ADOPTAR!

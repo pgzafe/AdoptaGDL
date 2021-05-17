@@ -1,0 +1,180 @@
+doctype html
+head
+  title AdoptaGDL
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='canonical' href='https://getbootstrap.com/docs/5.0/examples/carousel/')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  link(href='../assets/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='css/carousel.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(href='css/historiasCSS.css' rel='stylesheet' type='text/css')
+  link(href='../assets/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css')
+  link(href='css/carousel.css' rel='stylesheet' type='text/css')
+  link(href='css/sudebars.css' rel='stylesheet' type='text/css')
+  style.
+    body {
+    margin: 0%;
+    padding: 0%;
+    }
+    input {
+    margin-bottom: 10px;
+    }
+style.
+  .bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  }
+  @media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+  font-size: 3.5rem;
+  }
+  }
+  .media{
+  border: 1px rgba(211, 211, 211, 0.651);
+  padding: 10px;
+  border-style: solid;
+  margin: 10px;
+  border-radius: 5px;
+  width: max-content;
+  }
+// NAV BAR
+nav.navbar.navbar-expand-sm.navbar-light.bg-light
+  #collapsibleNavId.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mt-22.mt-lg-0
+      li.nav-item.active
+        a.navbar-brand(href='/' style='color:rgb(57, 184, 158);')
+          img(src='AdoptaGDL_Logo2.png' height='100%' width='100%')
+          span.sr-only (current)
+      form.container-fluid.justify-content-start
+        button.btn.btn-outline-success.me-2(type='button') 
+          a(href='/adopciones' style="color: rgb(57, 184, 158)") Adoptar
+// CONTAINER COLLAGE PRINCIPAL
+.jumbotron(style="background-image: url('bg-perros.png'); background-size: cover;")
+  .container
+    div(style='padding-left: 40%;')
+      img.rounded-circle(src='AdoptaGDL_Logo.png')
+    h1(style='color: rgb(30, 30, 30);')
+      b Servicio Web dedicado a la adopci&oacute;n de mascotas
+    hr.my-2(style='height: 5px;')
+    p.lead
+      a.btn.btn-primary.btn-lg(href='/adopciones' role='button' style='color:rgba(190, 190, 190, 0.959); background-color: rgb(30, 30, 30); border-color: rgba(255, 255, 255, 0);') &iexcl;Quiero adoptar!
+// POR QUÉ ADOPTAR
+.jumbotron(style='background-color:rgb(57, 184, 158, 0.8);')
+  .container
+    h3(style='color: rgb(30, 30, 30); text-align: center;')
+      strong &iquest;Porqu&eacute; adoptar?
+    p(style='font-size:x-large; text-align: center;') Esta mascota entrega amor incondicional
+// HISTORIAS
+#Historias.carousel.slide(data-ride='carousel' style='margin-top: 50px;')
+  // Carousel indicators
+  ol.carousel-indicators
+    li.active(data-target='#Historias' data-slide-to='0')
+    li(data-target='#Historias' data-slide-to='1')
+    li(data-target='#Historias' data-slide-to='2')
+  // Wrapper for carousel items
+  .carousel-inner
+    .carousel-item.active
+      .img-box
+        img(src='https://content.assets.pressassociation.io/2017/07/20151127/GettyImages-508328932.jpg' alt='')
+      p.testimonial Mi perro me ha cambiado la vida, es el mejor amigo que he tenido en mi vida.
+      p.overview
+        b Michael Rever
+        b Guadalajara
+      .star-rating
+        ul.list-inline
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+    .carousel-item
+      .img-box
+        img(src='https://barkpost.com/wp-content/uploads/2015/01/cool-or-crazy.jpg' alt='')
+      p.testimonial
+        b Da much&iacute;sima felicidad saber que rescataste un perro y le est&aacute;s brindando una vida mejor.
+      p.overview
+        b Paula Zaragoza
+        b Monterrey
+      .star-rating
+        ul.list-inline
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+    .carousel-item
+      .img-box
+        img(src='https://alignthoughts.com/wp-content/uploads/2016/06/alignthoughts-kid-playing-with-dog.jpg' alt='')
+      p.testimonial Gracias a este sitio mi hijo tiene con quien pasar la cuarentena.
+      p.overview
+        b Georigina Moreno
+        b Guanajuato
+      .star-rating
+        ul.list-inline
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star
+          li.list-inline-item
+            i.fa.fa-star-half-o
+  // Carousel controls
+  a.carousel-control-prev(href='#Historias' data-slide='prev')
+    i.fa.fa-angle-left
+  a.carousel-control-next(href='#Historias' data-slide='next')
+    i.fa.fa-angle-right
+// CONTACTOS
+footer.footer(style='background-color: rgb(248, 249, 250);')
+  .container
+    .container
+      .row
+        .col-sm
+          img(src='AdoptaGDL_Logo2.png')
+        .col-sm
+          ul(style='list-style-type: none; color: rgb(57, 184, 158);')
+            li
+              b UBICACI&Oacute;N:
+            li Av. Mariano Otero 5700
+            li Col. Paseos del Sol
+            li Jalisco, M&eacute;xico C.P.45070
+        .col-sm
+          ul(style='list-style-type: none; color: rgb(57, 184, 158);')
+            li
+              b CONTACT CENTER:
+            li (044) 3318629076
+            li Atenci&oacute;n: 07:00-05:00
+        .col-sm
+          ul(style='list-style-type: none; color: rgb(57, 184, 158);')
+            li
+              b PAGINAS:
+            li Adopciones
+            li Usuario
+  span.text-muted(style='text-align:center;')  &copy;AdoptaGDL S.A. de C.V. es una empresa de corporativo PabloJaniceCrespo
+// Optional JavaScript
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+script(src='../assets/dist/js/bootstrap.bundle.min.js' type='text/javascript')
+script(src='/ProyectoFinal/public/index.js' type='text/javascript')
